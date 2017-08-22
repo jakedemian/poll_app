@@ -10,6 +10,7 @@
  * Created: August 21, 2017
  * Creator: Jake Demian <jakedemian@gmail.com>
  */
+
 app.controller('CreatePollController', function($scope) {
     // an array to store our questions
     $scope.questions = [];

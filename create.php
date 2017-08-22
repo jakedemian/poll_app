@@ -8,8 +8,8 @@
     <script src="./assets/lib/jquery-min.js"></script>
     <script src="./assets/lib/angularjs-min.js"></script>
     
-    <script src="./assets/src/js/app.js"></script>
-    <script src="./assets/src/js/CreatePoll.js"></script>
+    <script src="./assets/dist/js/app.min.js"></script>
+    <script src="./assets/dist/js/CreatePoll.min.js"></script>
 </head>
 <body ng-app="mainApp" ng-controller="CreatePollController" ng-init="init(3)">
     <h1>Create new poll</h1>
@@ -20,16 +20,20 @@
         <a href="javascript:void(0);" class="button" ng-click="createSubmit()">Create this Poll</a>
 
         <br/>
-
-        <input type="checkbox" name="enableMultipleAnswers" id="enableMultipleAnswers" />
-        <label for="enableMultipleAnswers">Allow multiple selections</label> <br />
-
-        <input type="checkbox" name="enableShuffle" id="enableShuffle"/>
-        <label for="enableShuffle">Shuffle Answers</label> <br />
-
-        <input type="checkbox" name="enableIpRestriction" id="enableIpRestriction"/>
-        <label for="enableIpRestriction">Allow multiple submissions from same IP address</label> <br/>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" class="checkbox" name="enableMultipleAnswers" id="enableMultipleAnswers" />
+            <label for="enableMultipleAnswers">Allow multiple selections</label> <br />
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" class="checkbox" name="enableShuffle" id="enableShuffle"/>
+            <label for="enableShuffle">Shuffle Answers</label> <br />
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" class="checkbox" name="enableIpRestriction" id="enableIpRestriction"/>
+            <label for="enableIpRestriction">Allow multiple submissions from same IP address</label> <br/>
+        </div>
     </form>
-</body>
+</body> 
 </html>
 <!-- END create.php -->

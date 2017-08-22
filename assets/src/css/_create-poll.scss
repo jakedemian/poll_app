@@ -1,3 +1,23 @@
-.create-input{
-    display:block;
+#createPollForm{
+    .create-input{
+        display: block;
+    }
+
+    .checkbox-container{
+        display: block;
+        cursor: pointer;
+
+        .checkbox, label{
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        label{
+            -webkit-user-select: none;  
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+    }
 }
