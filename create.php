@@ -28,7 +28,7 @@
         </div>
         <div class="checkbox-container">
             <input type="checkbox" class="checkbox" name="enableShuffle" id="enableShuffle"/>
-            <label for="enableShuffle">Shuffle Answers</label> <br />
+            <label for="enableShuffle">Shuffle Options</label> <br />
         </div>
         <div class="checkbox-container">
             <input type="checkbox" class="checkbox" name="enableIpRestriction" id="enableIpRestriction"/>
