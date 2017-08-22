@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^((?!ProcessCreatePoll\.php).)*$ index.php
+RewriteRule (?=^((?!\.php).)*$)(?=^((?!\.js).)*$)(?=^((?!\.css).)*$) index.php

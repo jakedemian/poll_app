@@ -11,10 +11,11 @@
     <script src="./assets/dist/js/app.min.js"></script>
     <script src="./assets/dist/js/CreatePoll.min.js"></script>
 </head>
-<body ng-app="mainApp" ng-controller="CreatePollController" ng-init="init(3)">
+<body ng-app="mainApp" ng-controller="CreatePollController" ng-init="init(2)">
     <h1>Create new poll</h1>
     <form id="createPollForm" method="post" action="ProcessCreatePoll.php">
-        <input class="create-input" ng-repeat="n in questions" id="q_{{$index}}" name="q_{{$index}}" type="text" ng-keypress="createInputKeypress($event);"/>
+        <input class="create-prompt" id="createPrompt" name="createPrompt" type="text" placeholder="Prompt"/>
+        <input class="create-input" ng-repeat="n in questions" id="q_{{$index}}" name="q_{{$index}}" type="text" placeholder="Option {{$index + 1}}" ng-keypress="createInputKeypress($event);" ng-cloak/>
         
         <a href="javascript:void(0);" class="button" ng-click="addQuestion()">Add Question</a>
         <a href="javascript:void(0);" class="button" ng-click="createSubmit()">Create this Poll</a>

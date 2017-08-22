@@ -1,6 +1,7 @@
 drop table if exists polls;
 create table polls(
 	poll_id varchar(6) primary key not null,
+    prompt varchar(256) not null,
     shuffle boolean not null,
     multiple_select boolean not null,
     ip_lock boolean not null
