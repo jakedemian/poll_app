@@ -1,6 +1,5 @@
 assets/dist/*
 assets/lib/*
-gruntfile.js
-package.json
 node_modules/*
 db_conn_info.xml
+.sass-cache

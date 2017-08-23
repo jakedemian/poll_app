@@ -1,9 +1,3 @@
-//
-//
-// TODO     COMPILE THIS INTO DIST DIRECTORY AND LOADED FROM THERE
-//
-//
-
 /**
  * CreatePollController definition and implementation
  * 
