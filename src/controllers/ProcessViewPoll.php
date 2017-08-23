@@ -1,5 +1,7 @@
 <?php
-require(__dir__ . "/includes/CommonIncludes.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require(__dir__ . "/../../includes/CommonIncludes.php");
 
 // other validation?
 if(!isset($_GET["id"])){
@@ -30,12 +32,12 @@ if($ipLock === 1){ // if user is locked out and can only view results OR if they
 
     if($ipRes != null){
         // iplock is on and you're already taken this poll, so go to results
-        $phpFile = "results.php";
+        $phpFile = __dir__ . "/../views/results.php";
     } else {
-        $phpFile = "answer.php"; // ip locked, but you havent responded yet
+        $phpFile = __dir__ . "/../views/answer.php"; // ip locked, but you havent responded yet
     }
 } else if($ipLock === 0){ // otherwise, show the user the poll questions
-    $phpFile = "answer.php";
+    $phpFile = __dir__ . "/../views/answer.php";
 } else {
     die("whoops");
 }

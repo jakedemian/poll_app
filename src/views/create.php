@@ -12,7 +12,7 @@
 </head>
 <body ng-app="mainApp" ng-controller="CreatePollController" ng-init="init(2)">
     <h1>Create new poll</h1>
-    <form id="createPollForm" method="post" action="ProcessCreatePoll.php">
+    <form id="createPollForm" method="post" action="./src/controllers/ProcessCreatePoll.php">
         <input class="create-prompt" id="createPrompt" name="createPrompt" type="text" placeholder="Prompt"/>
         <input class="create-input" ng-repeat="n in questions" id="q_{{$index}}" name="q_{{$index}}" type="text" placeholder="Option {{$index + 1}}" ng-keypress="createInputKeypress($event);" ng-cloak/>
         

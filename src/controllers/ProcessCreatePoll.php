@@ -1,5 +1,7 @@
 <?php
-require(__dir__ . "/includes/CommonIncludes.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require(__dir__ . "/../../includes/CommonIncludes.php");
 
 // read in db_conn_info.xml to get connection information
 $conn = getDatabaseConnection();

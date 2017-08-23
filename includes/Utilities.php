@@ -36,3 +36,7 @@ function getDatabaseConnection(){
 
     return $conn;
 }
+
+function safePrint($s){
+    echo htmlspecialchars($s);
+}
