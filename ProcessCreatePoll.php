@@ -11,7 +11,7 @@ if($prompt == null){
 
 $allowMultiple = getPostParam("enableMultipleAnswers") == "" ? false : true;
 $shuffle = getPostParam("enableShuffle") == "" ? false : true;
-$ipLock = getPostParam("enableIpRestriction") == "" ? false : true;
+$ipLock = getPostParam("disableIpRestriction") == "" ? true : false;
 
 $queries = array();
 foreach($_POST as $key => $value){

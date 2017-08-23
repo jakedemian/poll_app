@@ -30,8 +30,8 @@
             <label for="enableShuffle">Shuffle Options</label> <br />
         </div>
         <div class="checkbox-container">
-            <input type="checkbox" class="checkbox" name="enableIpRestriction" id="enableIpRestriction"/>
-            <label for="enableIpRestriction">Allow multiple submissions from same IP address</label> <br/>
+            <input type="checkbox" class="checkbox" name="disableIpRestriction" id="disableIpRestriction"/>
+            <label for="disableIpRestriction">Allow multiple submissions from same IP address</label> <br/>
         </div>
     </form>
 </body> 
