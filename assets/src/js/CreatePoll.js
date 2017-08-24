@@ -5,7 +5,7 @@
  * Creator: Jake Demian <jakedemian@gmail.com>
  */
 
-app.controller('CreatePollController', function($scope) {
+app.controller("CreatePollController", ["$scope", function($scope) {
     // an array to store our questions
     $scope.questions = [];
 
@@ -82,5 +82,5 @@ app.controller('CreatePollController', function($scope) {
         }
 
         form.submit();
-    }
-});
+    };
+}]);

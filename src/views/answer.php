@@ -35,6 +35,15 @@ if ($stmt = $conn->prepare("SELECT query_text FROM queries WHERE poll_id=? ORDER
 if(sizeOf($queries) < 2){ // need at least 2 queries to have a poll
     die("There were no queries loaded.");
 }
+
+$queriesString = "[";
+for($i = 0; $i < sizeof($queries); $i++){
+    $queriesString .= "'" . $queries[$i] . "'";
+    if($i < sizeof($queries) - 1){
+        $queriesString .= ",";
+    }
+}
+$queriesString .= "]";
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,20 +55,22 @@ if(sizeOf($queries) < 2){ // need at least 2 queries to have a poll
     <script src="./assets/lib/angularjs-min.js"></script>
     
     <script src="./assets/dist/js/main.js"></script>
-
-    <script>
-        var prompt = "<?php safePrint($prompt); ?>";
-        var queries = [
-            <?php for ($i = 0; $i < sizeof($queries); $i++) : ?>
-                "<?php safePrint($queries[$i]); ?>"<?php if($i < sizeof($queries) - 1){safePrint(",");} ?>
-            <?php endfor; ?>
-        ];
-        var shuffle = <?php $shuffle === 1 ? safePrint("true") : safePrint("false"); ?>;
-        var ipLock = <?php $ipLock === 1 ? safePrint("true") : safePrint("false"); ?>;
-        var multiSelect = <?php $multiSelect === 1 ? safePrint("true") : safePrint("false"); ?>;
-    </script>
 </head>
-<body>
-<!-- TODO -->
+<body ng-app="mainApp" ng-controller="AnswerPollController" ng-init="init('<?php safePrint($prompt); ?>', <?php safePrint($queriesString); ?>, <?php $shuffle === 1 ? safePrint("true") : safePrint("false"); ?>, <?php $ipLock === 1 ? safePrint("true") : safePrint("false"); ?>, <?php $multiSelect === 1 ? safePrint("true") : safePrint("false"); ?>)">
+    <div class="answerPollPage" >
+        <div class="prompt-container">
+            <h1>{{prompt}}</h1>
+        </div>
+        <form class="answerPollForm" id="answerPollForm" method="post" action="./src/controllers/ProcessPollResponse.php">
+            <input type="hidden" name="pollId" value="<?php safePrint($pollId); ?>" />
+            <div ng-repeat="n in queries" data-index="{{$index}}" class="selection-box" ng-click="select($event)">
+                <span class="query-text">{{n}}</span>
+                <span class="icon">x</span>
+            </div>
+            <div class="submit-poll-button">
+                <a href="javascript:void(0)" ng-click="submitPoll()" >Submit</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

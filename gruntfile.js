@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 separator: '\r\n\r\n'
             },
             dist: {
-                src: ['assets/src/js/app.js', 'assets/src/js/CreatePoll.js'],
+                src: ['assets/src/js/app.js', 'assets/src/js/CreatePoll.js', 'assets/src/js/AnswerPoll.js'],
                 dest: 'assets/dist/js/main.js'
             }
         },
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            files: ['gruntfile.js', 'assets/js/*.js', 'assets/js/modules/*.js'],
+            files: ['gruntfile.js', 'assets/src/js/*.js'],
             options: {
                 globals: {
                      jQuery: true,

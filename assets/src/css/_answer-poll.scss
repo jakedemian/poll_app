@@ -1,0 +1,54 @@
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.answerPollPage{
+    width: 940px;
+    margin: 0 auto;
+    
+    .prompt-container{
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .answerPollForm{
+        .selection-box{
+            border: 1px solid black;
+            width: 500px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 30px;
+            margin: 0 auto;
+            cursor: pointer;
+        
+            .query-text{
+                height: 60vh;
+            }
+            .icon{
+                float: right;
+                visibility: hidden;
+            }
+        }
+        .selected{
+            .icon{
+                float: right;
+                visibility: visible;
+            }
+        }
+
+        .submit-poll-button{
+            border: 2px solid black;
+            width: 150px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 35px;
+            
+            & a{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+}

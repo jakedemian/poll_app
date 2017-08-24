@@ -8,7 +8,7 @@
     <script src="./assets/lib/jquery-min.js"></script>
     <script src="./assets/lib/angularjs-min.js"></script>
     
-    <script src="./assets/dist/js/main.js"></script>
+    <script src="./assets/dist/js/main.min.js"></script>
 </head>
 <body ng-app="mainApp" ng-controller="CreatePollController" ng-init="init(2)">
     <h1>Create new poll</h1>
