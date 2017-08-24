@@ -30,6 +30,7 @@ if ($stmt = $conn->prepare("SELECT query_text FROM queries WHERE poll_id=? ORDER
         $txt = $rowMap["query_text"];
         array_push($queries, $txt);
     }
+    $stmt->close();
 }
 
 if(sizeOf($queries) < 2){ // need at least 2 queries to have a poll

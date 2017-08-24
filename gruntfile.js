@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 separator: '\r\n\r\n'
             },
             dist: {
-                src: ['assets/src/js/app.js', 'assets/src/js/CreatePoll.js', 'assets/src/js/AnswerPoll.js'],
+                src: ['assets/src/js/app.js', 'assets/src/js/CreatePoll.js', 'assets/src/js/AnswerPoll.js', 'assets/src/js/Results.js'],
                 dest: 'assets/dist/js/main.js'
             }
         },

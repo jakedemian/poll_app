@@ -59,5 +59,9 @@ for($i = 0; $i < sizeof($answers); $i++){
 }
 $conn->close();
 
+// FIXME this value should probably come from a db configuration or a config file or something
+$cookieExpTimeOffset = 85400 * 5;
+setcookie($pollId, $pollId, time() + $cookieExpTimeOffset, "/");
+
 header("Location: /" . $pollId);
 exit;
