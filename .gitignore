@@ -3,3 +3,4 @@ assets/lib/*
 node_modules/*
 db_conn_info.xml
 .sass-cache
+.DS_Store
