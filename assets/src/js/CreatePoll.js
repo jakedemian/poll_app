@@ -8,6 +8,7 @@
 app.controller("CreatePollController", ["$scope", function($scope) {
     // an array to store our questions
     $scope.questions = [];
+    $scope.maxQuestions = 10;
 
     /**
      * executes a callback function after angular has finished re-rendering the DOM
@@ -36,10 +37,20 @@ app.controller("CreatePollController", ["$scope", function($scope) {
     /**
      * Add an input to the create poll form
      */
-    $scope.addQuestion = function(){
-        $scope.questions.push({
-            "questionText":""
-        });
+    $scope.addQuestions = function(numOfQuestions){
+        if($scope.questions.length >= $scope.maxQuestions){
+            return;
+        }
+        
+        for(var i = 0; i < numOfQuestions; i++){
+            if($scope.questions.length < $scope.maxQuestions){
+                $scope.questions.push({
+                    "questionText":""
+                });
+            } else {
+                break;
+            }
+        }
     };
     
     /**
@@ -50,9 +61,11 @@ app.controller("CreatePollController", ["$scope", function($scope) {
             e.preventDefault();
             
             var idx = Number(e.target.id.replace("q_", ""));
-            if(idx === this.questions.length - 1){
+            if(idx === this.questions.length - 2){
                 // TODO add a check to make sure we aren't at the max number of inputs
-                this.addQuestion();
+                this.addQuestions(1);
+            } else if(idx == this.questions.length - 1){
+                this.addQuestions(2);
             }
 
             // focus the next element after angular has updated
