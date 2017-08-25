@@ -64,7 +64,7 @@ $queriesString .= "]";
         </div>
         <form class="answerPollForm" id="answerPollForm" method="post" action="./src/controllers/ProcessPollResponse.php">
             <input type="hidden" name="pollId" value="<?php safePrint($pollId); ?>" />
-            <div ng-repeat="n in queries" data-index="{{$index}}" class="selection-box" ng-click="select($event)">
+            <div ng-repeat="n in queries track by $index" data-index="{{$index}}" class="selection-box" ng-click="select($event)">
                 <span class="query-text">{{n}}</span>
                 <span class="icon">x</span>
             </div>
