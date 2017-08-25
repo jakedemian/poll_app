@@ -1,0 +1,68 @@
+//////////////////////////////////
+// GLOBAL VARS
+$primaryColor: #3de27c;
+$secondaryColor: white;
+$pseudoBlack: #555;
+
+//////////////////////////////////
+// MIXINS
+@mixin borderBox() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+@mixin preventSelect(){
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+///////////////////////////////////
+// STYLES
+$inputPlaceholderLightenPercentage: lighten($pseudoBlack, 40%);
+input,textarea{
+    &::-webkit-input-placeholder    { color: $inputPlaceholderLightenPercentage; }
+    &::-moz-placeholder             { color: $inputPlaceholderLightenPercentage; }
+    &:-ms-input-placeholder         { color: $inputPlaceholderLightenPercentage; }
+    &:-moz-placeholder              { color: $inputPlaceholderLightenPercentage; }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.checkbox{
+    cursor: pointer;
+    @include preventSelect();
+    margin: 5px auto;
+    
+    .check-container{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid $primaryColor;
+        text-align: center;
+        line-height: 30px;        
+
+        .fa{
+            visibility: hidden;
+            color: $primaryColor;
+        }
+    }
+
+    & span{
+        color: $pseudoBlack;
+        padding-left: 15px;
+    }
+}
+.checked{
+    .check-container{
+        .fa{
+            visibility: visible;
+        }
+    }
+}

@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule (?=^((?!\.php).)*$)(?=^((?!\.js).)*$)(?=^((?!\.css).)*$) index.php
+RewriteRule (?=^((?!\.php).)*$)(?=^((?!\.js).)*$)(?=^((?!\.css).)*$)(?=^((?!\.woff).)*$)(?=^((?!\.ttf).)*$) index.php

@@ -57,7 +57,7 @@ app.controller("CreatePollController", ["$scope", function($scope) {
      * Handle a keypress event on a form input, only perform logic if pressed key was Enter (keyCode == 13)
      */
     $scope.createInputKeypress = function(e){
-        if(e.keyCode === 13){
+        if(e.keyCode === 13 || e.keyCode === 9){
             e.preventDefault();
             
             var idx = Number(e.target.id.replace("q_", ""));
@@ -76,17 +76,27 @@ app.controller("CreatePollController", ["$scope", function($scope) {
         }
     };
 
+    $scope.check = function(e){
+        var thisSelection = $(e.currentTarget);
+        thisSelection.toggleClass("checked");
+    };
+
     /**
      * Submits the create poll form after some processing of the input.
      */
     $scope.createSubmit = function(){
         var form = $("#createPollForm");
-
+        var checkBoxes = $(".checkbox");        
         var inputs = form.find("input");
 
-        // TODO verify that there are not too many inputs
+        for(var i = 0; i < checkBoxes.length; i++){
+            var checkBox = checkBoxes[i];
+            var name = $(checkBox).attr("data-name");
+            var isChecked = $(checkBox).hasClass("checked");
+            form.append("<input type='hidden' name='" + name + "' value='" + isChecked + "' />");
+        }
 
-        for(var i = 0; i < inputs.length; i++){
+        for(i = 0; i < inputs.length; i++){
             // front end processing of the inputs.  if blank, get rid of it
             var inputValue = inputs[i].value;
             if(inputValue.trim() === "" || inputValue === null){
@@ -97,3 +107,7 @@ app.controller("CreatePollController", ["$scope", function($scope) {
         form.submit();
     };
 }]);
+
+$(document).ready(function(){
+    $("#createPrompt").focus();
+});
