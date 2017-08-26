@@ -17,8 +17,8 @@
             <h1>Dewpoll</h1>
         </div>
         <form class="create-poll-form" id="createPollForm" method="post" action="./src/controllers/ProcessCreatePoll.php">
-            <input class="create-prompt" id="createPrompt" name="createPrompt" type="text" placeholder="Enter a prompt for this poll"/>
-            <input class="create-input" ng-repeat="n in questions" id="q_{{$index}}" name="q_{{$index}}" type="text" placeholder="Option {{$index + 1}}" ng-keydown="createInputKeypress($event);" ng-cloak/>
+            <input class="create-prompt" autocomplete="off" id="createPrompt" name="createPrompt" type="text" placeholder="Enter a prompt for this poll"/>
+            <input class="create-input" autocomplete="off" ng-repeat="n in questions" id="q_{{$index}}" name="q_{{$index}}" type="text" placeholder="Option {{$index + 1}}" ng-keydown="createInputKeypress($event);" ng-cloak/>
             
             <div class="create-button">
                 <a href="javascript:void(0);" class="create-button-link" ng-click="createSubmit()">Create this Poll</a>
